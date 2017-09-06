@@ -2,12 +2,14 @@
   <div class="bill-data-report">
     <figure-a></figure-a>
     <figure-b></figure-b>
+    <radar :value.sync="test" ></radar>
   </div>
 </template>
 
 <script>
 import FigureA from '@/components/FigureA'
 import FigureB from '@/components/FigureB'
+import Radar from '@/components/Radar'
 
 export default {
   data () {
@@ -17,7 +19,8 @@ export default {
   },
   components: {
     FigureA,
-    FigureB
+    FigureB,
+    Radar
   }
 }
 </script>
