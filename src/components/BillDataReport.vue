@@ -4,6 +4,7 @@
     <figure-b></figure-b>
     <radar :value.sync="test" ></radar>
   </div>
+
 </template>
 
 <script>
