@@ -1,7 +1,7 @@
 .DS_Store
 node_modules/
 dist/
-config.json
+src/config/firebase.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

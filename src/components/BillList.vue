@@ -11,7 +11,7 @@
 
 <script>
 import Firebase from 'firebase'
-import config from '../../config.json'
+import config from '../config/firebase.json'
 
 var initConfig = {
   apiKey: config.firebase.apiKey,
