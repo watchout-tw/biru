@@ -1,5 +1,5 @@
 <template>
-  <div class="figure-a">
+  <div class="comparison-table">
     <h1>I am title</h1>
     <table>
       <tr>
@@ -26,10 +26,12 @@ export default {
 </script>
 
 <style lang="scss">
-table, th, td{
-  border: 1px solid black;
-  border-collapse: collapse;
-  padding: 5px;
-  margin: 0 auto;
+.comparison-table{
+  table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    margin: 0 auto;
+  }
 }
 </style>
