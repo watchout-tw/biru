@@ -4,9 +4,12 @@ import Vue from 'vue'
 import VueFire from 'VueFire'
 import App from './App'
 import router from './router'
+import ElementUI from 'element-ui'
+import ElementLocale from 'element-ui/lib/locale/lang/zh-TW'
 
 Vue.config.productionTip = false
 Vue.use(VueFire)
+Vue.use(ElementUI, { locale: ElementLocale })
 
 /* eslint-disable no-new */
 new Vue({
