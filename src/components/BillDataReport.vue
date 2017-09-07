@@ -1,7 +1,7 @@
 <template>
   <div class="bill-data-report">
     <comparison-table></comparison-table>
-    <figure-b></figure-b>
+    <bar-table></bar-table>
     <radar :value.sync="test" ></radar>
   </div>
 
@@ -9,7 +9,7 @@
 
 <script>
 import ComparisonTable from '@/components/ComparisonTable'
-import FigureB from '@/components/FigureB'
+import BarTable from '@/components/BarTable'
 import Radar from '@/components/Radar'
 
 export default {
@@ -20,7 +20,7 @@ export default {
   },
   components: {
     ComparisonTable,
-    FigureB,
+    BarTable,
     Radar
   }
 }
