@@ -1,28 +1,17 @@
 <template>
   <div class="bar-table">
     <h1>I am bar title</h1>
+    <button v-for="feature in model.features" @click="updateTable(feature.feature)">{{feature.feature}}</button>
     <table>
       <tr>
         <th colspan="1"></th>
-        <th colspan="2">1</th>
-        <th colspan="2">2</th>
-        <th colspan="2">3</th>
-        <th colspan="2">4</th>
-        <th colspan="1"></th>
+        <th v-for="n in max + 1" colspan="2">{{n - 1}}</th>
       </tr>
-      <tr>
-        <td colspan="2">張三</td>
-        <td colspan="2" class="score"></td>
-        <td colspan="2" class="score"></td>
-        <td colspan="2" class="score"></td>
-        <td colspan="2"></td>
-      </tr>
-      <tr>
-        <td colspan="2">李四</td>
-        <td colspan="2" class="score"></td>
-        <td colspan="2" class="no-score"></td>
-        <td colspan="2" class="no-score"></td>
-        <td colspan="2"></td>
+      <tr v-for="item in score">
+        <td colspan="2">{{item.name}}</td>
+        <td v-for="n in item.score" colspan="2" class="score"></td>
+        <td v-for="n in max - item.score" colspan="2" class="no-score"></td>
+        <td colspan="1"></td>
       </tr>
     </table>
     <p>I am bar description</p>
@@ -31,9 +20,47 @@
 
 <script>
 export default {
+  props: ['value'],
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      model: this.value,
+      max: 0,
+      score: []
+    }
+  },
+  beforeMount () {
+    this.model = this.value
+  },
+  watch: {
+    'value' () {
+      this.pull()
+    }
+  },
+  mounted () {
+    this.pull()
+  },
+  methods: {
+    pull () {
+      this.model = this.value
+      this.score = []
+      if (this.model) {
+        this.updateTable(this.model.features[0].feature)
+      }
+    },
+    updateTable (featureName) {
+      this.score = []
+      this.max = 0
+      for (let i of this.model.bills) {
+        for (let feature of i.act_features) {
+          if (feature.act_feature_title === featureName) {
+            this.score.push({
+              'score': feature.score,
+              'name': feature.content
+            })
+            this.max = this.max >= feature.score ? this.max : feature.score
+          }
+        }
+      }
     }
   }
 }

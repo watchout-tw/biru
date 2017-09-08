@@ -1,7 +1,7 @@
 <template>
   <div class="bill-data-report">
     <comparison-table></comparison-table>
-    <bar-table></bar-table>
+    <bar-table :value.sync="model.radar"></bar-table>
     <radar :value.sync="model.radar" ></radar>
   </div>
 
@@ -29,12 +29,11 @@ export default {
     },
     init () {
       restful.getDataReport(window.location.href.split('/').pop()).then(snapshot => {
-        console.log('snap', snapshot.val())
         var data = snapshot.val()
-        this.model.radar = {
+        this.$set(this.model, 'radar', {
           features: data.actFeatures,
           bills: data.bills
-        }
+        })
       })
     }
   },
