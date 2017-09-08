@@ -3,12 +3,12 @@
     <h1>I am title</h1>
     <table>
       <tr>
-        <th>name/item</th>
-        <th>item</th>
+        <th>bill name/feature</th>
+        <th v-for="feature in model.features">{{feature.feature}}</th>
       </tr>
-      <tr>
-        <td>Five Wang</td>
-        <td>100%</td>
+      <tr v-for="(bill, index) in model.bills">
+        <td>Bill {{index}}</td>
+        <td v-for="act in bill.act_features">{{act.content}}</td>
       </tr>
     </table>
     <p>I am description</p>
@@ -17,9 +17,28 @@
 
 <script>
 export default {
+  props: ['value'],
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      model: this.value,
+      max: 0,
+      score: []
+    }
+  },
+  beforeMount () {
+    this.model = this.value
+  },
+  watch: {
+    'value' () {
+      this.pull()
+    }
+  },
+  mounted () {
+    this.pull()
+  },
+  methods: {
+    pull () {
+      this.model = this.value
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="bill-data-report">
-    <comparison-table></comparison-table>
+    <comparison-table :value.sync="model.radar"></comparison-table>
     <bar-table :value.sync="model.radar"></bar-table>
     <radar :value.sync="model.radar" ></radar>
   </div>
