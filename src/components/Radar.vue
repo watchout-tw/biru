@@ -1,6 +1,6 @@
 <template>
   <div class="figure-radar">
-    <button @click="draw">draw</button>
+    <button v-for="bill in model.bills" @click="draw(bill)">biil</button>
     <div id="radar">i am radar</div>
   </div>
 </template>
@@ -24,27 +24,27 @@ export default {
     }
   },
   methods: {
-    draw () {
-      var d = [
-        [
-          {feature: 'cat', score: 0.04},
-          {feature: 'dog', score: 0.03},
-          {feature: 'pig', score: 0.07},
-          {feature: 'fish', score: 0.01},
-          {feature: 'ant', score: 0.02},
-          {feature: 'bird', score: 0.08}
-        ]
-      ]
+    draw (bill) {
+      var radarInfo = []
+      var content = []
+      for (let i of bill.act_features) {
+        content.push({
+          feature: i.act_feature_title,
+          score: i.score
+        })
+      }
+      radarInfo.push(content)
       var options = {
-        maxValue: 0.1,
+        maxValue: 10,
         levels: 5,
         segments: false
       }
-      radar.draw('#radar', d, options)
+      radar.draw('#radar', radarInfo, options)
       return
     },
     pull () {
       this.model = this.value
+      console.log('pull value')
       this.draw()
     }
   }

@@ -2,7 +2,7 @@
   <div class="bill-data-report">
     <comparison-table></comparison-table>
     <bar-table></bar-table>
-    <radar :value.sync="test" ></radar>
+    <radar :value.sync="model.radar" ></radar>
   </div>
 
 </template>
@@ -16,7 +16,8 @@ import * as restful from '../util/restful'
 export default {
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      model: {}
     }
   },
   beforeMount () {
@@ -29,6 +30,11 @@ export default {
     init () {
       restful.getDataReport(window.location.href.split('/').pop()).then(snapshot => {
         console.log('snap', snapshot.val())
+        var data = snapshot.val()
+        this.model.radar = {
+          features: data.actFeatures,
+          bills: data.bills
+        }
       })
     }
   },
