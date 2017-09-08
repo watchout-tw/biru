@@ -37,8 +37,9 @@ export default {
   },
   methods: {
     create: function (event) {
-      var newKey = db.ref('dataReport').push().key
-      this.$router.push({name: 'BillDataReport', params: { id: newKey }})
+      // var newKey = db.ref('dataReport').push().key
+      // this.$router.push({name: 'BillDataReport', params: { id: newKey }})
+      this.$router.push({name: 'BillCreate'})
     },
     init () {
       this.bills = []

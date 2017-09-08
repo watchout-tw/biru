@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import BillCreate from '@/components/BillCreate'
 import BillDataReport from '@/components/BillDataReport'
 import BillList from '@/components/BillList'
 
@@ -13,9 +14,14 @@ export default new Router({
       component: BillList
     },
     {
-      path: '/:id',
+      path: '/bill/:id',
       name: 'BillDataReport',
       component: BillDataReport
+    },
+    {
+      path: '/create',
+      name: 'BillCreate',
+      component: BillCreate
     }
   ]
 })
