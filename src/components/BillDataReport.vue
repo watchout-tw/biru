@@ -11,11 +11,25 @@
 import ComparisonTable from '@/components/ComparisonTable'
 import BarTable from '@/components/BarTable'
 import Radar from '@/components/Radar'
+import * as restful from '../util/restful'
 
 export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  beforeMount () {
+    this.init()
+  },
+  methods: {
+    create: function (event) {
+      this.$router.push({name: 'BillCreate'})
+    },
+    init () {
+      restful.getDataReport(window.location.href.split('/').pop()).then(snapshot => {
+        console.log('snap', snapshot.val())
+      })
     }
   },
   components: {

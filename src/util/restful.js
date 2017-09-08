@@ -17,6 +17,10 @@ export function getDataReportList () {
   return db.ref('dataReport').once('value')
 }
 
+export function getDataReport (id) {
+  return db.ref('dataReport/' + id).once('value')
+}
+
 export function getBillDataKey () {
   var ref = db.ref('dataReport').push()
   var key = ref.key
