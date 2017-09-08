@@ -12,7 +12,7 @@
           </el-form-item>
           <el-form-item label="Act Features">
           </el-form-item>
-          <el-form-item v-for="af in form.actFeatures">
+          <el-form-item v-for="af in form.actFeatures" :key="index">
             <el-input placeholder="Lower vote threshold" v-model="af.feature"></el-input>
           </el-form-item>
           <el-form-item>
@@ -20,7 +20,7 @@
           </el-form-item>
           <el-form-item label="Bill">
           </el-form-item>
-          <el-form-item v-for="(bill, index) in form.bills">
+          <el-form-item v-for="(bill, index) in form.bills" :key="index">
             <el-form-item :label="'Bill ' + index">
             </el-form-item>
             <el-col :span="8">Short Content</el-col>
@@ -28,7 +28,7 @@
             <el-col :span="8">Content</el-col>
             <el-col :span="1"><div class="grid-content"></div></el-col>
             <el-col :span="5">Score</el-col>
-            <el-form-item v-for="baf in bill.act_features">
+            <el-form-item v-for="baf in bill.act_features" :key="index">
               <el-form-item :label="baf.act_feature_title"></el-form-item>
               <el-col :span="8">
                 <el-input v-model="baf.short_content"></el-input>
@@ -58,13 +58,11 @@
 </template>
 
 <script>
-// import Firebase from 'firebase'
-// import config from '../config/firebase.json'
+import * as restful from '../util/restful'
 
 export default {
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
       form: {
         act: '',
         topic: '',
@@ -94,7 +92,10 @@ export default {
       })
     },
     submit () {
-
+      var keyObj = restful.getBillDataKey()
+      restful.postBillData(keyObj.ref, this.form).then(response => {
+        this.$router.push({name: 'BillDataReport', params: { id: keyObj.key }})
+      })
     }
   }
 }
