@@ -21,6 +21,12 @@ export function getDataReport (id) {
   return db.ref('dataReport/' + id).once('value')
 }
 
+export function postBillDataByKey (key, reqObj) {
+  var updates = {}
+  updates['dataReport/' + key] = reqObj
+  return db.ref().update(updates)
+}
+
 export function getBillDataKey () {
   var ref = db.ref('dataReport').push()
   var key = ref.key

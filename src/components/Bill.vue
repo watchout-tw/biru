@@ -71,7 +71,7 @@ export default {
     if (this.$route.params.id !== '0') {
       restful.getDataReport(this.$route.params.id).then(snapshot => {
         var data = snapshot.val()
-        this.form = data
+        this.form = Object.assign({}, this.form, data)
       })
     }
   },
@@ -106,10 +106,16 @@ export default {
       })
     },
     submit () {
-      var keyObj = restful.getBillDataKey()
-      restful.postBillData(keyObj.ref, this.form).then(response => {
-        this.$router.push({name: 'Report', params: { id: keyObj.key }})
-      })
+      if (this.$route.params.id !== '0') {
+        restful.postBillDataByKey(this.$route.params.id, this.form).then(response => {
+          this.$router.push({name: 'Report', params: { id: this.$route.params.id }})
+        })
+      } else {
+        var keyObj = restful.getBillDataKey()
+        restful.postBillData(keyObj.ref, this.form).then(response => {
+          this.$router.push({name: 'Report', params: { id: keyObj.key }})
+        })
+      }
     }
   }
 }
