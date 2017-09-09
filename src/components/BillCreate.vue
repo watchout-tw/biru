@@ -77,7 +77,8 @@ export default {
         bill.act_features.push({
           act_feature_title: bill.act_features[0].act_feature_title,
           short_content: '',
-          content: ''
+          content: '',
+          score: 0
         })
       })
     },
@@ -87,7 +88,8 @@ export default {
         tmpActFeature.push({
           act_feature_title: item.feature,
           short_content: '',
-          content: ''
+          content: '',
+          score: 0
         })
       })
       this.form.bills.push({
