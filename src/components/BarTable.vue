@@ -1,6 +1,6 @@
 <template>
   <div class="bar-table">
-    <h1>I am bar title</h1>
+    <h2>barTable</h2>
     <button v-for="feature in model.features" @click="updateTable(feature.feature)">{{feature.feature}}</button>
     <table>
       <tr>
@@ -14,7 +14,7 @@
         <td colspan="1"></td>
       </tr>
     </table>
-    <p>I am bar description</p>
+    <p>I am bar table description.</p>
   </div>
 </template>
 
@@ -67,20 +67,21 @@ export default {
 </script>
 
 <style lang="scss">
-.bar-table{
-  table{
+.bar-table {
+  margin: 4rem 0;
+  table {
     width: 50%;
-    margin: 0 auto;
+    margin: 0;
   }
-  th, td{
+  th, td {
     margin: 5px;
     border-collapse: collapse;
     width: 14.285%;
   }
-  .score{
+  .score {
     background-color: grey;
   }
-  .no-score{
+  .no-score {
     background-color: silver;
   }
 }

@@ -1,5 +1,6 @@
 <template>
-<div class="figure-radar">
+<div class="radar">
+  <h2>radar</h2>
   <div class="buttons">
     <button v-for="(bill, index) in bills" @click="draw(index)">billIndex = {{ index }}</button>
   </div>
@@ -58,4 +59,7 @@ export default {
 </script>
 
 <style lang="scss">
+.radar {
+  margin: 4rem 0;
+}
 </style>

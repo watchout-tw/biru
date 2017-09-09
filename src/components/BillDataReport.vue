@@ -1,5 +1,6 @@
 <template>
 <div class="bill-data-report">
+  <h1>🍺</h1>
   <comparison-table :value.sync="model.radar" :parentInitialized="initialized"></comparison-table>
   <simple-comparison-table :value.sync="model.radar" :parentInitialized="initialized"></simple-comparison-table>
   <bar-table :value.sync="model.radar" :parentInitialized="initialized"></bar-table>

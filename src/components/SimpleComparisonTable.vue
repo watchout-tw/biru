@@ -1,19 +1,19 @@
 <template>
   <div class="simple-comparison-table">
-    <h1>I am simple table</h1>
+    <h2>simpleTable</h2>
     <table>
       <tr>
-        <th>bill name/feature</th>
+        <th>bill\feature</th>
         <th>radar</th>
         <th v-for="feature in model.features">{{feature.feature}}</th>
       </tr>
       <tr v-for="(bill, index) in model.bills">
-        <td>Bill {{index}}</td>
+        <td>bill #{{index}}</td>
         <td>radar figure here</td>
         <td v-for="act in bill.act_features">{{act.short_content}}</td>
       </tr>
     </table>
-    <p>I am simple table description</p>
+    <p>Simple table description.</p>
   </div>
 </template>
 
@@ -48,11 +48,12 @@ export default {
 
 <style lang="scss">
 .simple-comparison-table{
-  table, th, td{
+  margin: 4rem 0;
+  table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
     padding: 5px;
-    margin: 0 auto;
+    margin: 0;
   }
 }
 </style>

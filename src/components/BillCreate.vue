@@ -1,5 +1,6 @@
 <template>
   <div class="bill-create">
+    <h1>🌾→🍺</h1>
     <el-row>
       <el-col :span="6"><div class="grid-content"></div></el-col>
       <el-col :span="12">

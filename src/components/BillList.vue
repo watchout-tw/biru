@@ -1,12 +1,13 @@
 <template>
-  <div class="bill-list">
-    <button v-on:click="create">Create</button>
-    <ul>
-      <li v-for="bill in bills">
-        <router-link :to="{ name: 'BillDataReport', params: { id: bill.key }}">{{ bill.val.topic }}</router-link>
-      </li>
-    </ul>
-  </div>
+<div class="bill-list">
+  <h1>🍺🍺🍺</h1>
+  <button v-on:click="create">Create</button>
+  <ul>
+    <li v-for="bill in bills">
+      <router-link :to="{ name: 'BillDataReport', params: { id: bill.key }}">{{ bill.val.topic }}</router-link>
+    </li>
+  </ul>
+</div>
 </template>
 
 <script>
