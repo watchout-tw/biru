@@ -176,7 +176,6 @@ export function draw ($el, d, options) {
   axis.append('text')
       .attr('class', 'legend')
       .text(function (d) { return d })
-      .style('font-family', 'sans-serif')
       .style('font-size', '20px')
       .attr('text-anchor', 'middle')
       .attr('dy', '1.5em')
