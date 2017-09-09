@@ -2,7 +2,7 @@
 <div class="radar">
   <h2>radar</h2>
   <div class="buttons">
-    <button v-for="(bill, index) in bills" @click="draw(index)">billIndex = {{ index }}</button>
+    <button v-for="(bill, index) in bills" @click="draw(index)">{{bill.name}}</button>
   </div>
 </div>
 </template>

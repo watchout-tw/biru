@@ -8,7 +8,7 @@
         <th v-for="feature in model.features">{{feature.feature}}</th>
       </tr>
       <tr v-for="(bill, index) in model.bills">
-        <td>bill #{{index}}</td>
+        <td>{{bill.name}}</td>
         <td>radar figure here</td>
         <td v-for="act in bill.act_features">{{act.short_content}}</td>
       </tr>
