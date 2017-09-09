@@ -57,7 +57,7 @@ export default {
           if (feature.act_feature_title === featureName) {
             this.score.push({
               'score': feature.score,
-              'name': feature.content
+              'name': i.name
             })
             this.max = this.max >= feature.score ? this.max : feature.score
           }
@@ -75,6 +75,7 @@ export default {
   table {
     width: 100%;
     margin: 0;
+    table-layout: fixed;
   }
   th, td {
     margin: 5px;
