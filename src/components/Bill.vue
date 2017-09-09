@@ -47,7 +47,8 @@
         <el-button type="text" icon="plus" @click="addBill">Add bill</el-button>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" size="large" @click="submit">Create a dataReport</el-button>
+        <el-button v-if="isNew" type="primary" size="large" @click="submit">Create a dataReport</el-button>
+        <el-button v-else type="primary" size="large" @click="submit">Submit dataReport</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -64,7 +65,8 @@ export default {
         topic: '',
         actFeatures: [],
         bills: []
-      }
+      },
+      isNew: this.$route.params.id === '0'
     }
   },
   beforeMount () {
