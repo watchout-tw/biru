@@ -1,56 +1,61 @@
 <template>
-  <div class="figure-radar">
-    <button v-for="bill in model.bills" @click="draw(bill)">biil</button>
-    <div id="radar">i am radar</div>
+<div class="figure-radar">
+  <div class="buttons">
+    <button v-for="(bill, index) in bills" @click="draw(index)">billIndex = {{ index }}</button>
   </div>
+</div>
 </template>
 
 <script>
 import * as radar from '@/util/radar'
 
 export default {
-  props: ['value', 'model'],
+  props: ['value', 'parentInitialized'],
   data () {
     return {
-      model: this.value
+      mounted: false
     }
   },
-  beforeMount () {
-    this.pull()
+  computed: {
+    bills () {
+      return this.value ? this.value.bills : []
+    }
   },
   watch: {
-    'value' () {
-      this.pull()
+    'parentInitialized' () {
+      this.draw(0)
+    },
+    'mounted' () {
+      this.draw(0)
     }
   },
+  mounted () {
+    this.mounted = true
+  },
   methods: {
-    draw (bill) {
-      var radarInfo = []
-      var content = []
-      for (let i of bill.act_features) {
-        content.push({
-          feature: i.act_feature_title,
-          score: i.score
-        })
+    draw (billIndex) {
+      if (this.parentInitialized && this.mounted && billIndex < this.bills.length) {
+        const bill = this.bills[billIndex]
+        var radarInfo = []
+        var content = []
+        for (let i of bill.act_features) {
+          content.push({
+            feature: i.act_feature_title,
+            score: i.score
+          })
+        }
+        radarInfo.push(content)
+        var options = {
+          maxValue: 10,
+          levels: 5,
+          segments: false
+        }
+        radar.draw(this.$el, radarInfo, options, this.$el)
       }
-      radarInfo.push(content)
-      var options = {
-        maxValue: 10,
-        levels: 5,
-        segments: false
-      }
-      radar.draw('#radar', radarInfo, options)
-      return
-    },
-    pull () {
-      this.model = this.value
-      console.log('pull value')
-      this.draw()
     }
   }
 }
 </script>
 
 <style lang="scss">
-
 </style>

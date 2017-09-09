@@ -1,6 +1,6 @@
 import * as d3 from 'd3'
 
-export function draw (id, d, options) {
+export function draw ($el, d, options) {
   var cfg = {
     radius: 5,
     w: 600,
@@ -37,14 +37,17 @@ export function draw (id, d, options) {
   }))
   var total = allAxis.length
   var radius = cfg.factor * Math.min(cfg.w / 2, cfg.h / 2)
-  d3.select(id).select('svg').remove()
 
-  var g = d3.select(id)
-  .append('svg')
-  .attr('width', cfg.w + cfg.ExtraWidthX)
-  .attr('height', cfg.h + cfg.ExtraWidthY)
-  .append('g')
-  .attr('transform', 'translate(' + cfg.TranslateX + ',' + cfg.TranslateY + ')')
+  // remove svg if exists
+  d3.select($el).select('svg').remove()
+
+  // now draw
+  var g = d3.select($el)
+    .append('svg')
+    .attr('width', cfg.w + cfg.ExtraWidthX)
+    .attr('height', cfg.h + cfg.ExtraWidthY)
+    .append('g')
+    .attr('transform', 'translate(' + cfg.TranslateX + ',' + cfg.TranslateY + ')')
 
   // Circular segments
   var levelFactor
