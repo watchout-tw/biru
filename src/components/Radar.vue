@@ -10,6 +10,16 @@
 <script>
 import * as radar from '@/util/radar'
 
+const getMaxScore = function (array) {
+  var max = 0
+  for (let i of array) {
+    if (i.score) {
+      max = max >= i.score ? max : i.score
+    }
+  }
+  return max * 1.01
+}
+
 export default {
   props: ['value', 'parentInitialized'],
   data () {
@@ -46,8 +56,9 @@ export default {
           })
         }
         radarInfo.push(content)
+        var maxValue = getMaxScore(content)
         var options = {
-          maxValue: 10,
+          maxValue: maxValue,
           levels: 5,
           segments: false
         }
