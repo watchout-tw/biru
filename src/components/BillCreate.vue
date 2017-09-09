@@ -1,6 +1,6 @@
 <template>
   <div class="bill-create">
-    <h1>🌾→🍺</h1>
+    <h1>👩‍🔬👨‍🔬</h1>
     <el-row>
       <el-col :span="6"><div class="grid-content"></div></el-col>
       <el-col :span="12">
@@ -17,7 +17,7 @@
             <el-input placeholder="Lower vote threshold" v-model="af.feature"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" icon="plus" @click="addActFeature"></el-button>
+            <el-button type="text" icon="plus" @click="addActFeature">Add act feature</el-button>
           </el-form-item>
           <el-form-item label="Bill">
           </el-form-item>
@@ -45,11 +45,10 @@
             </el-form-item>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" icon="plus" @click="addBill"></el-button>
+            <el-button type="text" icon="plus" @click="addBill">Add bill</el-button>
           </el-form-item>
-          <hr><br>
           <el-form-item>
-            <el-button type="primary" size="large" @click="submit">Submit</el-button>
+            <el-button type="primary" size="large" @click="submit">Create a dataReport</el-button>
           </el-form-item>
         </el-form>
       </el-col>
