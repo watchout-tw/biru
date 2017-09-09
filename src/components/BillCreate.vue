@@ -73,6 +73,13 @@ export default {
         feature: '',
         dir: ''
       })
+      this.form.bills.forEach(bill => {
+        bill.act_features.push({
+          act_feature_title: bill.act_features[0].act_feature_title,
+          short_content: '',
+          content: ''
+        })
+      })
     },
     addBill () {
       var tmpActFeature = []
@@ -84,6 +91,7 @@ export default {
         })
       })
       this.form.bills.push({
+        name: '',
         act_features: tmpActFeature
       })
     },
