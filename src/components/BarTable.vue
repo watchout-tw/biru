@@ -68,7 +68,8 @@ export default {
 
 <style lang="scss">
 .bar-table {
-  margin: 4rem 0;
+  margin: 0 0 4rem;
+
   table {
     width: 50%;
     margin: 0;
@@ -79,10 +80,10 @@ export default {
     width: 14.285%;
   }
   .score {
-    background-color: grey;
+    background-color: #50e3c2;
   }
   .no-score {
-    background-color: silver;
+    background-color: #eee;
   }
 }
 </style>

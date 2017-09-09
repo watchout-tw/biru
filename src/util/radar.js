@@ -3,8 +3,8 @@ import * as d3 from 'd3'
 export function draw ($el, d, options) {
   var cfg = {
     radius: 5,
-    w: 600,
-    h: 600,
+    w: 360,
+    h: 360,
     factor: 1,
     factorLegend: 0.9,
     levels: 3,
@@ -176,7 +176,7 @@ export function draw ($el, d, options) {
   axis.append('text')
       .attr('class', 'legend')
       .text(function (d) { return d })
-      .style('font-size', '20px')
+      .style('font-size', '1rem')
       .attr('text-anchor', 'middle')
       .attr('dy', '1.5em')
       .attr('transform', function (d, i) { return 'translate(0, -10)' })

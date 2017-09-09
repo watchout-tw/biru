@@ -48,7 +48,8 @@ export default {
 
 <style lang="scss">
 .simple-comparison-table{
-  margin: 4rem 0;
+  margin: 0 0 4rem;
+
   table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
