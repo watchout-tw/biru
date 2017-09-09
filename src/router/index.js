@@ -7,6 +7,7 @@ import BillList from '@/components/BillList'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -14,7 +15,7 @@ export default new Router({
       component: BillList
     },
     {
-      path: '/bill/:id',
+      path: '/dr/:id',
       name: 'BillDataReport',
       component: BillDataReport
     },
