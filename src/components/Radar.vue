@@ -60,6 +60,6 @@ export default {
 
 <style lang="scss">
 .radar {
-  margin: 0 0 4rem;
+  margin: 0 auto 4rem;
 }
 </style>

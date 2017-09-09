@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import BillCreate from '@/components/BillCreate'
-import BillDataReport from '@/components/BillDataReport'
-import BillList from '@/components/BillList'
+import ReportCreate from '@/components/BillCreate'
+import Report from '@/components/BillDataReport'
+import ReportList from '@/components/BillList'
 
 Vue.use(Router)
 
@@ -11,18 +11,18 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'BillList',
-      component: BillList
+      name: 'ReportList',
+      component: ReportList
     },
     {
       path: '/dr/:id',
-      name: 'BillDataReport',
-      component: BillDataReport
+      name: 'Report',
+      component: Report
     },
     {
       path: '/create',
-      name: 'BillCreate',
-      component: BillCreate
+      name: 'ReportCreate',
+      component: ReportCreate
     }
   ]
 })

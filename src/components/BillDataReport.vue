@@ -1,10 +1,10 @@
 <template>
-<div class="bill-data-report">
+<div class="report">
   <h1>🍺</h1>
-  <comparison-table :value.sync="model.radar" :parentInitialized="initialized"></comparison-table>
-  <simple-comparison-table :value.sync="model.radar" :parentInitialized="initialized"></simple-comparison-table>
-  <bar-table :value.sync="model.radar" :parentInitialized="initialized"></bar-table>
-  <radar :value.sync="model.radar" :parentInitialized="initialized"></radar>
+  <comparison-table :value="model.radar" :parentInitialized="initialized"></comparison-table>
+  <simple-comparison-table :value="model.radar" :parentInitialized="initialized"></simple-comparison-table>
+  <bar-table :value="model.radar" :parentInitialized="initialized"></bar-table>
+  <radar :value="model.radar" :parentInitialized="initialized"></radar>
 </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     create: function (event) {
-      this.$router.push({name: 'BillCreate'})
+      this.$router.push({name: 'ReportCreate'})
     },
     init () {
       restful.getDataReport(window.location.href.split('/').pop()).then(snapshot => {
@@ -50,4 +50,8 @@ export default {
 </script>
 
 <style lang="scss">
+.report {
+  margin: 0 auto;
+  max-width: 36rem;
+}
 </style>
