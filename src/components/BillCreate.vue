@@ -19,7 +19,10 @@
       <el-form-item label="Bill">
       </el-form-item>
       <el-form-item v-for="(bill, index) in form.bills" :key="index">
-        <el-form-item :label="'Bill ' + index"></el-form-item>
+        <el-form-item :label="'Bill ' + (index + 1)"></el-form-item>
+        <el-form-item label="Bill Name">
+          <el-input placeholder="Bill Name" v-model="bill.name"></el-input>
+        </el-form-item>
         <el-col :span="8">Short Content</el-col>
         <el-col :span="1"><div class="grid-content"></div></el-col>
         <el-col :span="8">Content</el-col>
