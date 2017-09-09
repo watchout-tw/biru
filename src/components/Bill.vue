@@ -67,6 +67,14 @@ export default {
       }
     }
   },
+  beforeMount () {
+    if (this.$route.params.id !== '0') {
+      restful.getDataReport(this.$route.params.id).then(snapshot => {
+        var data = snapshot.val()
+        this.form = data
+      })
+    }
+  },
   methods: {
     addActFeature () {
       this.form.actFeatures.push({

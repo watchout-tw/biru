@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     create: function (event) {
-      this.$router.push({name: 'ReportCreate'})
+      this.$router.push({name: 'ReportCreate', params: { id: '0' }})
     },
     init () {
       this.bills = []

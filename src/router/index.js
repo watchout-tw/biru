@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import ReportCreate from '@/components/BillCreate'
+import ReportCreate from '@/components/Bill'
 import Report from '@/components/BillDataReport'
 import ReportList from '@/components/BillList'
 
@@ -20,7 +20,7 @@ export default new Router({
       component: Report
     },
     {
-      path: '/create',
+      path: '/report/:id',
       name: 'ReportCreate',
       component: ReportCreate
     }

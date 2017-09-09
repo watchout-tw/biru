@@ -1,6 +1,13 @@
 <template>
 <div class="report">
-  <h1>🍺</h1>
+  <el-row>
+    <el-col :span="20">
+      <h1>🍺</h1>
+    </el-col>
+    <el-col :span="4">
+      <el-button type="text" icon="edit" @click="edit">Edit</el-button>
+    </el-col>
+  </el-row>
   <comparison-table :value="model.radar" :parentInitialized="initialized"></comparison-table>
   <simple-comparison-table :value="model.radar" :parentInitialized="initialized"></simple-comparison-table>
   <bar-table :value="model.radar" :parentInitialized="initialized"></bar-table>
@@ -38,6 +45,9 @@ export default {
         })
         this.initialized = true
       })
+    },
+    edit () {
+      this.$router.push({name: 'ReportCreate', params: { id: this.$route.params.id }})
     }
   },
   components: {
