@@ -27,7 +27,7 @@ const getMaxScore = function (array) {
       max = max >= i.score ? max : i.score
     }
   }
-  return max * 1.02
+  return Math.max(max, 5) * 1.02
 }
 
 export default {
